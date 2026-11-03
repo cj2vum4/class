@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>報修登記</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="config.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <main class="container">
+    <header class="page-header">
+      <span class="eyebrow">維修服務</span>
+      <h1>報修登記</h1>
+      <p>填寫問題與發生地點，讓維修人員掌握狀況。</p>
+    </header>
+
+    <section class="panel" aria-labelledby="form-title">
+      <h2 id="form-title">新增報修</h2>
+      <p class="hint">所有欄位皆為必填。</p>
+      <form id="repair-form">
+        <fieldset id="form-fields">
+          <div class="form-grid">
+            <label>報修人
+              <input name="reporter_name" autocomplete="name" maxlength="100" required>
+            </label>
+            <label>地點或部門
+              <input name="location" maxlength="150" placeholder="例如：三樓會議室、行政部" required>
+            </label>
+            <label>類別
+              <select name="category" required>
+                <option value="">請選擇類別</option>
+                <option>設備</option><option>網路</option><option>環境</option><option>其他</option>
+              </select>
+            </label>
+            <label>緊急程度
+              <select name="urgency" required>
+                <option value="">請選擇緊急程度</option>
+                <option>低</option><option>中</option><option>高</option>
+              </select>
+            </label>
+            <label class="full-width">問題說明
+              <textarea name="description" rows="5" maxlength="3000" placeholder="請描述問題、發生時間及影響範圍" required></textarea>
+            </label>
+          </div>
+          <button id="submit-button" type="submit">送出報修</button>
+        </fieldset>
+      </form>
+      <p id="form-message" class="message" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="panel" aria-labelledby="list-title">
+      <div class="section-header">
+        <div><h2 id="list-title">最近報修紀錄</h2><p class="hint">依建立時間由新到舊，最多顯示 20 筆。</p></div>
+        <button id="refresh-button" class="secondary" type="button">重新整理</button>
+      </div>
+      <p id="list-message" class="message" role="status" aria-live="polite"></p>
+      <ul id="request-list" class="request-list" aria-label="報修紀錄"></ul>
+    </section>
+    <noscript><p class="message error">請啟用 JavaScript，才能使用報修功能。</p></noscript>
+  </main>
+</body>
+</html>

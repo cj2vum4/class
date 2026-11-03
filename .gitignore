@@ -1,0 +1,8 @@
+# 本機連線設定
+/config.js
+
+# 產出與暫存檔案
+/outputs/
+/.artifact-work/
+/.proposal-build/
+*.docx
