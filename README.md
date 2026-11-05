@@ -66,3 +66,4 @@
 - [新增資料](https://supabase.com/docs/reference/javascript/insert)
 - [資料排序](https://supabase.com/docs/reference/javascript/using-modifiers-order)
 - [查詢資料](https://supabase.com/docs/reference/javascript/select)
+雲端任務測試 2026-11-06
